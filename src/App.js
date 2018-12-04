@@ -44,15 +44,17 @@ class App extends Component {
     });
   }
   deleteS() {
-    var newList = this.state.sList;
-    newList.splice(this.state.sCurrent, 1);
-    this.setState({
-      sList: newList
-    });
+    if (this.state.sList.length != 1) {
+      var newList = this.state.sList;
+      newList.splice(this.state.sCurrent, 1);
+      this.setState({
+        sList: newList
+      });
 
-    // sCurrent isnt linked properly until if statement runs successfully
-    if (this.state.sCurrent == this.state.sList.length) {
-      this.setState({ sCurrent: this.state.sCurrent - 1 });
+      // sCurrent isnt linked properly until if statement runs successfully
+      if (this.state.sCurrent == this.state.sList.length) {
+        this.setState({ sCurrent: this.state.sCurrent - 1 });
+      }
     }
   }
   editS() {
